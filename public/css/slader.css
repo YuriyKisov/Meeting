@@ -1,0 +1,25 @@
+.gal-wrapper {
+	border: 3px solid red;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.gal-wrapper img {
+	width: 100%;
+	vertical-align: middle;
+}
+.gal-wrapper button {
+	position: absolute;
+	/*top: 50%;*/
+}
+.prev {
+	left: 0px;
+}
+.next {
+	right: 0px;
+}
+.gal-inner {
+	border: 3px solid blue;
+	width: 100000px;
+	font-size: 0;
+}

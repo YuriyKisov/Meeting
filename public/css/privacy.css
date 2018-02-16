@@ -1,0 +1,49 @@
+#app .row .navbar .container-fluid .navbar-collapse .navbar-nav li a {
+    color: black;
+}
+body {
+    position: relative;
+}
+.container-fluid .row {
+    margin: 0 auto;
+    position: absolute;
+    z-index: -999;
+    margin-top: 100px;
+}
+.container .row .text-privacy {
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+}
+.navbar-static-bottom .navbar-inner .container-fluid .row {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+}
+.navbar-static-bottom .navbar-inner .container-fluid {
+    border-top: 1px solid black;
+    font-size: 0px;
+    padding: 5px;
+    padding-bottom: 15px;
+}
+.container-fluid .navbar-static-bottom {
+     position: relative;
+ }
+.massege p {
+    display: block;
+    font-size: 14px;
+    vertical-align: middle;
+    color: black;
+    padding-top: 5px;
+}
+.massege {
+    vertical-align: middle;
+    height: 100%;
+}
+.navbar-static-bottom .navbar-inner .container-fluid .row div img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}

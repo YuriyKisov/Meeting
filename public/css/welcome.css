@@ -1,0 +1,86 @@
+body {
+	position: relative;
+	height: 100%;
+	max-height: 1400px;
+}
+.video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-height: 1400px;
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	z-index: -999;
+	background-size: cover;
+}
+.video > video {
+	position: absolute;
+	top:0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+}
+.navbar-default {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	color: transparent;
+	opacity: 1;
+}
+.navbar-default {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+}
+.navbar-brand {
+	padding-right: 80px;
+}
+div #app .navbar .container .navbar-collapse .navbar-nav li a {
+	color: white;
+	line-height: 35px;
+	font-size: 20px;
+}
+
+@media (max-width: 1000px) {
+	#app .navbar .container .navbar-collapse {
+		border: none;
+		background-color: black;
+		opacity:0.6;
+	}
+	#app .navbar .container .navbar-collapse .navbar-nav li a {
+		color: white;
+		line-height: 35px;
+	}
+	#app .navbar .container .navbar-collapse .navbar-nav li a:hover {
+		color: orange;
+		line-height: 35px;
+	}
+	#app .navbar .container .navbar-collapse .navbar-nav li:hover {
+		background-color: grey;
+		opacity:1.0;
+	}
+}
+
+.navbar-default {
+    margin-top: 10px;
+}
+@media (min-aspect-ratio: 16/9) {
+	.video > video { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+	.video > video { width: 300%; left: -100%; }
+}
+/* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
+@supports (object-fit: cover) {
+	.video > video {
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		object-fit: cover;
+	}
+}
