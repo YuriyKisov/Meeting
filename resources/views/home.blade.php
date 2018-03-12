@@ -56,93 +56,72 @@
         </div>
         <div class="col-md-8 col-xs-8 col-sm-8">
             <span>{{ Auth::user()->name }}. Your personal information</span>
-            <div id="app">
-                <template lang="html">
-                    <tr>
-                        <td>
-                            <input type="text"  class="form-control"
-                                   v-model="editForm.username" v-if="edit"
-                            >
-                            {{--<span v-else>{{ user.username }}</span>--}}
-                        </td>
+            <div class="container">
+                <div class="row justify-content-center">
 
-                        <td>
-                            <input type="text" class="form-control"
-                                   v-model="editForm.email" v-if="edit"
-                            >
-                            {{--<span v-else>{{ user.email }}</span>--}}
-                        </td>
+                    @if(session('info'))
+                        <div class="alert alert-success">
+                            {{session('info')}}
+                        </div>
+                    @endif
 
-                        <td>
-                            <button type="button" class="btn btn-info"
-                                    v-on:click="editUser" v-if="!edit"
-                            >
-                                Edit
-                            </button>
+                    <div class="col-md-12">
+                        <div class="container">
+                            <div class="row">
+                                <legend>Profile</legend>
+                                <table class="table table-striped table-hover text-center">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>
+                                            <a href='{{ url("/update_user") }}' class="badge badge-success">Update</a> |
+                                            <a href="{{ url('/delete_user') }}" class="badge badge-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
-                            <button type="button" class="btn btn-default"
-                                    v-on:click="cancelEdit" v-if="edit"
-                            >
-                                Cancel
-                            </button>
-
-                            <button type="button" class="btn btn-primary"
-                                    v-on:click="updateUser(user, editForm)" v-if="edit"
-                            >
-                                update
-                            </button>
-
-                            <button type="button" class="btn btn-danger"
-                                    v-on:click="$emit('delete-user', user)" v-if="!edit"
-                            >
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                </template>
+                                <legend>Events</legend>
+                                <table class="table table-striped table-hover text-center">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{--@if(count($events) > 0)--}}
+                                        {{--@foreach($events->all() as $event)--}}
+                                            {{--<tr>--}}
+                                                {{--<td>{{ $event->id }}</td>--}}
+                                                {{--<td>{{ $event->title }}</td>--}}
+                                                {{--<td>{{ $event->description }}</td>--}}
+                                                {{--<td>--}}
+                                                    {{--<a href='{{ url("/update_event/{$event->id}") }}' class="badge badge-success">Update</a> |--}}
+                                                    {{--<a href='{{ url("/delete_event/{$event->id}") }}' class="badge badge-danger">Delete</a>--}}
+                                                {{--</td>--}}
+                                            {{--</tr>--}}
+                                        {{--@endforeach--}}
+                                    {{--@endif--}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-    <script src="/js/app.js"></script>
-<script>
-    export default {
-        props:['users'],
-        data(){
-            return {
-                edit: false,
-                editForm :{
-                    username: '',
-                    email: ''
-                }
-            }
-        },
-
-        methods: {
-            editUser(){
-                this.edit = true;
-                this.editForm.username = this.user.username;
-                this.editForm.email = this.user.email;
-            },
-            cancelEdit(){
-                this.edit = false;
-                this.editForm.username = '';
-                this.editForm.email = '';
-            },
-            updateUser(oldUser, newUser){
-                this.$http.patch('/users/' + oldUser.id, newUser).then(response => {
-                    this.$emit('update-user');
-                this.cancelEdit();
-                console.log(response.data);
-            }, (response) => {
-                    console.log(response.data);
-                });
-            }
-        }
-    }
-</script>
 
 </body>
 @endsection

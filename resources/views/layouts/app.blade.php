@@ -62,6 +62,7 @@
                         @else
                                 <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                                 <li><a href="{{ url('/home') }}">Home</a></li>
+                                <li><a class="nav-link" href="{{ url('/create_event') }}">Create Event</a></li>
                                 {{--<li><a href="{{ url('/home') }}">Recent Events</a></li>--}}
                                 <li><a href="{{ url('/about') }}">About Us</a></li>
                                 <li><a href="{{ url('/privacy') }}">Privacy</a></li>

@@ -5,9 +5,43 @@ body {
 }
 .video {
 	display: block;
-	position: relative;
-	background-size: cover;
 	margin: 0 auto;
+}
+ video {
+     display: block;
+	margin: 0 auto;
+     margin-top: 20px;
+}
+.flex-center .Fanny-video p  {
+	text-align: center;
+	margin-top: 20px;
+    margin-bottom: 15px;
+	font-size: 28px;
+	line-height: 28px;
+	font-weight: 700;
+}
+.flex-center {
+	position: relative;
+}
+.SNS-platform {
+	display: block;
+	width: 70%;
+	position: absolute;
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 700;
+	color: whitesmoke;
+	text-shadow: 1px 3px 3px black;
+	margin-top: 350px;
+	margin-left: 3%;
+}
+.flex-center .events p  {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: 28px;
+	line-height: 28px;
+	font-weight: 700;
 }
 .navbar-default {
 	width: 100%;
@@ -52,18 +86,4 @@ div #app .navbar .container .navbar-collapse .navbar-nav li a {
 
 .navbar-default {
     margin-top: 10px;
-}
-@media (min-aspect-ratio: 16/9) {
-	.video > video { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-	.video > video { width: 300%; left: -100%; }
-}
-/* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
-@supports (object-fit: cover) {
-	.video > video {
-		top: 0; left: 0;
-		width: 100%; height: 100%;
-		object-fit: cover;
-	}
 }

@@ -19,8 +19,7 @@ Route::get('/home', function () {
 });
 
 Auth::routes();
-
-Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'CreatesController@user');
 
 Route::get('/privacy', function () {
     return view('Privacy');
@@ -34,6 +33,20 @@ Route::get('/contactUs', function () {
 Route::get('/Events', function () {
     return view('Events');
 });
+//User
+Route::get('/update_user', 'CreatesController@updateUser');
+Route::post('/edit_user/{id}', 'CreatesController@editUser');
+Route::get('/delete_user', 'CreatesController@deleteUser');
+
+//Event
+
+Route::get('/create_event', function (){
+    return view('create_event');
+});
+Route::post('/insert_event', 'CreatesController@insertEvent');
+Route::get('/update_event/{id}', 'CreatesController@updateEvent');
+Route::post('/edit_event/{id}', 'CreatesController@editEvent');
+Route::get('/delete_event/{id}', 'CreatesController@deleteEvent');
 Route::post(
 /**
  * @param \Illuminate\Http\Request $request

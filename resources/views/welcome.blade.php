@@ -13,11 +13,11 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/styleabout.css') }}" rel="stylesheet">
         <link href="{{ asset('css/sendonmail.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/welcomeLast.css') }}" rel="stylesheet">
 
     <style>
         body {
-            background-color: lightblue;
+            background-color: whitesmoke;
         }
         div.customer_reviews{
             float: left;
@@ -48,6 +48,7 @@
         }
         .events {
             width: 100% !important;
+            position: relative;
         }
         .events .row {
             width: 100%;
@@ -56,16 +57,16 @@
             display: inline-block;
             width: 49%;
             padding: 50px;
-            /*height: 150px;*/
             box-sizing: border-box;
+            position: relative;
         }
         .events .row .category div {
             display:block;
-            width: 400px;
-            height:400px;
+            width: 100%;
+            height:300px;
             margin: 0 auto;
             box-sizing: border-box;
-            border-radius: 50%;
+            border-radius: 5%;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -113,15 +114,18 @@
         }
         .events .row .category a {
             display: block;
-            font-size: 30px;
+            font-size: 20px;
             font-family: "Helvetica Neue", sans-serif;
-            color: black;
-            line-height: 50px;
-            text-align: center;
-            margin-top: 30px;
+            color: white;
+            text-shadow: 1px 2px 2px black;
+            margin: 0 auto;
+            margin-top: -10%;
+            margin-left: 5%;
+            position: absolute;
         }
         .events .row .category a:hover {
             color: orange;
+            text-shadow: 1px 1px 2px black;
             text-decoration: none;
         }
         @media (max-width: 1000px) {
@@ -133,11 +137,13 @@
 
             #app .navbar .container .navbar-collapse .navbar-nav li a {
                 color: white;
+                text-shadow: 1px 2px 2px black;
                 line-height: 35px;
             }
 
             #app .navbar .container .navbar-collapse .navbar-nav li a:hover {
                 color: orange;
+                text-shadow: 1px 2px 2px black;
                 line-height: 35px;
             }
 
@@ -147,13 +153,14 @@
             }
 
             .events .row .category div {
-                width: 150px;
+                width: 100%;
                 height: 150px;
             }
 
             .events .row .category a {
-                font-size: 20px;
-                margin-top: 15px;
+                font-size: 10px;
+                margin-left: 3%;
+                margin-top: -10%;
             }
 
             .events .row .category {
@@ -194,7 +201,7 @@
                                 <ul class="nav navbar-nav">
                                     @guest
                                         <li><a href="{{ url('/home') }}">Home</a></li>
-                                        <li><a href="{{ url('/home') }}">Recent Events</a></li>
+                                        {{--<li><a href="{{ url('/home') }}">Recent Events</a></li>--}}
                                         <li><a href="{{ url('/about') }}">About Us</a></li>
                                         <li><a href="{{ url('/privacy') }}">Privacy</a></li>
                                         <li><a href="{{ url('/contactUs') }}">Contact Us</a></li>
@@ -205,7 +212,7 @@
                                         @else
                                             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                                             <li><a href="{{ url('/home') }}">Home</a></li>
-                                            <li><a href="{{ url('/home') }}">Recent Events</a></li>
+                                            {{--<li><a href="{{ url('/home') }}">Recent Events</a></li>--}}
                                             <li><a href="{{ url('/about') }}">About Us</a></li>
                                             <li><a href="{{ url('/privacy') }}">Privacy</a></li>
                                             <li><a href="{{ url('/contactUs') }}">Contact Us</a></li>
@@ -237,18 +244,7 @@
                     </nav>
                 </div>
             @endif
-                {{--<div class="container-fluid">--}}
-                    {{--<div class="container-fluid video">--}}
-                        {{--<video width="100%" height="400" autoplay="autoplay" loop="loop" poster='{{ asset('images/eng120x120.png') }}'>--}}
-                            {{--<source src="{{ asset('videos/Chinese.mp4') }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>--}}
-                    {{--</div>--}}
-                </div>
-
-
-
-
-
-    <div class="customer_reviews">
+                <div class="customer_reviews">
         <ul id="my_slider">
 
             <li>
@@ -290,7 +286,20 @@
 
         </ul>
     </div>
+                <p class="SNS-platform">Clocout provides free SNS platform. Where you can post your organised events and attend events of other organiser.</p>
+                <div class="Fanny-video">
+                    <p>Funniest video</p>
+                        <div class="video">
+                        <video width="60%" height="300" controls="controls" loop="loop">
+                            <source src="{{ asset('videos/Chinese.mp4') }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    </div>
+                    <div class="video">
+                        <video width="60%" height="300" controls="controls" loop="loop">
+                            <source src="{{ asset('videos/Funny.mp4') }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    </div>
+                </div>
     <div class="container-fluid events">
+        <p>Select your event category</p>
         <div class="row">
             <div class=".col-xs-6 .col-sm-6 .col-md-6 category">
                 <div class="outdoor"></div>
